@@ -5,17 +5,18 @@
 
 enum FileType {
     REGULAR = 0,
-    SYMLINK
+    SYMLINK,
+    DIRECTORY
 };
 
 char *printMenu(enum FileType fileType, const char* fileName);
 int  validOperations(enum FileType, const char *option);
-void parseArguments(int argc, const char *argv[]);
-void runOperations(enum FileType fileType, const char *fileName, const char *operations);
-void printName(struct stat s);
-void printHardLinkCount(struct stat s);
-void printAccessRights(struct stat s);
-void printSize(struct stat s);
 void createSymbolicLink();
+void parseArguments(int argc, const char *argv[]);
+void printAccessRights(struct stat st);
+void printHardLinkCount(struct stat st);
+void printSize(struct stat st);
+void printTimeOfLastModification(struct stat st);
+void runOperations(enum FileType fileType, const char *fileName, const char *operations);
 
 #endif //FILES_H
