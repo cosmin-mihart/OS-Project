@@ -6,11 +6,13 @@
 enum FileType { REGULAR = 0, SYMLINK, DIRECTORY };
 
 char *printMenu(enum FileType fileType, const char *fileName);
-int validOperations(enum FileType, const char *option);
+int validOperations(const char *fileTypeOptions, const char *option);
 void createSymbolicLink(const char *fileName);
 void parseArguments(int argc, const char *argv[]);
 void printAccessRights(struct stat st);
 void printHardLinkCount(struct stat st);
+off_t getDirectorySize(const char *dir_path);
+char *humanReadableSize(long size);
 void printSize(struct stat st);
 void printTimeOfLastModification(struct stat st);
 void runOperations(enum FileType fileType, const char *fileName,

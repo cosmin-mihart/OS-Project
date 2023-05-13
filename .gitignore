@@ -4,4 +4,5 @@ out/
 build/
 compile_commands.json
 .cache
-Debug
+build
+bin
